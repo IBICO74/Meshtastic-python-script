@@ -1,4 +1,4 @@
-# Meshtastic Pi meshtastic node configuration scripts
+# Meshtastic node configuration scripts
 
 This repository contains shell scripts designed to administer Meshtastic nodes operating as a gateway in conjunction with a Raspberry Pi (or Orange Pi). The scripts primarily focus on retrieving and dumping configurations from Meshtastic nodes via either Wi-Fi (TCP/IP) or USB-serial connections.
 
@@ -20,8 +20,6 @@ To use these scripts, you will need a Raspberry Pi (or similar SBC) configured w
   * **Python 3** with `venv` installed.
   * A **Python virtual environment** for the Meshtastic CLI tools.
   * **Meshtastic CLI** installed within the virtual environment (version 2.6.x is confirmed compatible with these scripts).
-  * **`pyserial`** and **`paho-mqtt`** installed within the virtual environment (if you plan for MQTT integration).
-  * **`mosquitto` MQTT Broker** installed and running locally on the Raspberry Pi.
   * **Udev rules** set up to allow your user to access USB-serial ports without `sudo`.
   * A **Meshtastic node** (e.g., T-Beam, T1000-E) connected via USB or accessible via Wi-Fi on your network.
 
@@ -48,7 +46,7 @@ It is highly recommended to use a virtual environment for Python projects.
 ```bash
 python3 -m venv ~/meshtastic_venv
 source ~/meshtastic_venv/bin/activate
-pip install meshtastic pyserial paho-mqtt --upgrade
+pip install meshtastic pyserial --upgrade # pyserial is still needed for meshtastic CLI
 deactivate # Deactivate venv when done with installation
 ```
 
